@@ -3,17 +3,18 @@ import Header from './components/header';
 import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
 import './App.sass';
-import { autocompleteClasses } from '@mui/material';
 import { useState } from 'react';
 
 
 function App() {
-  const [list, setlist] = useState([]);
+  const [list, setList] = useState([]);
+  console.log(list);
+  
   return (
     <div className="App">
       <Header />
-      <TodoForm />
-      <TodoList />
+      <TodoForm setList={setList} list={list}/>
+      <TodoList list={list}/>
     </div>
   );
 }

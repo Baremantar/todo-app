@@ -1,10 +1,20 @@
-export default function TodoList() {
+import React from 'react';
 
+export default function TodoList({ list }: any) {
   return (
-    <div className="List">
-      <ul>
-        <li></li>
-      </ul>
-    </div>
+    <ul className="listjye">
+      {list ? list.map((item: any) => {
+        
+        console.log(item.id)
+         return (
+          <li key={item.id}>
+            <label>
+              <span>{item.text}</span>
+              <input type="checkbox" />
+            </label>
+          </li>
+        );
+      }) : <></>}
+    </ul>
   );
 }

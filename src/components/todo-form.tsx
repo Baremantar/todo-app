@@ -1,20 +1,15 @@
 import TextField from '@mui/material/TextField';
-import { stringify } from 'querystring';
-// import Box from '@mui/material/Box';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 
 
-export default function TodoForm() {
-  
+export default function TodoForm({setList, list}: any) {
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    var props = event.currentTarget.job.value
-    props = ''
-
-
-    
-
+    list.push(event.currentTarget.job.value);
+    setList([...list]);
+    event.currentTarget.job.value='';
   }
   
 
