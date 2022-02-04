@@ -7,10 +7,16 @@ export default function TodoForm({setList, list}: any) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    list.push(event.currentTarget.job.value);
+    const objData ={
+      name : event.currentTarget.job.value,
+      id: list.length, 
+      key: list.length, 
+    }
+    list.push(objData);
     setList([...list]);
     event.currentTarget.job.value='';
   }
+
   
 
   return (

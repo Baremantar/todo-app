@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './components/header';
 import TodoForm from './components/todo-form';
 import TodoList from './components/todo-list';
@@ -9,7 +8,7 @@ import { useState } from 'react';
 function App() {
   const [list, setList] = useState([]);
   console.log(list);
-  
+
   return (
     <div className="App">
       <Header />
