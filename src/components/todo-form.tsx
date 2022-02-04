@@ -1,18 +1,26 @@
 import TextField from '@mui/material/TextField';
 import { stringify } from 'querystring';
 // import Box from '@mui/material/Box';
-import React, { useRef } from 'react';
+import React, { useEffect } from 'react';
 
-interface TodoFormProps {
-  handle: string
-}
-const handle = event.preventDefault();
 
-export default function TodoForm(event: React.FormEvent<HTMLFormElement>) {
+
+export default function TodoForm() {
+  
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    var props = event.currentTarget.job.value
+    props = ''
+
+
+    
+
+  }
+  
 
   return (
-    <form className="Form" onSubmit={() => handle(event)}>
-      <TextField id="standard-basic" label="Standard" variant="standard" placeholder='Write job' />
+    <form className="Form" onSubmit={(event) => handleSubmit(event)}>
+      <TextField id="standard-basic" name="job" label="Standard" variant="standard" placeholder='Write job' />
       <input type="submit" />
       <label htmlFor=""></label>
     </form>
