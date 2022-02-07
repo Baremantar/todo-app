@@ -7,22 +7,22 @@ export default function TodoForm({setList, list}: any) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    
     const objData ={
       name : event.currentTarget.job.value,
       id: list.length, 
       key: list.length, 
+      isDone: false,
     }
-    list.push(objData);
+    list.filter((item: any) => item.isActive === true)[0].todos.push(objData);
     setList([...list]);
-    event.currentTarget.job.value='';
+    
   }
-
-  
 
   return (
     <form className="Form" onSubmit={(event) => handleSubmit(event)}>
-      <TextField id="standard-basic" name="job" label="Standard" variant="standard" placeholder='Write job' />
-      <input type="submit" />
+      <TextField id="standard-basic" name="job" label="Add todo" variant="standard"/>
+      <input type="submit"/>
       <label htmlFor=""></label>
     </form>
   );
