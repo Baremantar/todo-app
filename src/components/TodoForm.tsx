@@ -3,15 +3,15 @@ import React from 'react';
 
 
 
-export default function TodoForm({setList, list}: any) {
+export default function TodoForm({setList, list, todos}: any) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     
     const objData ={
       name : event.currentTarget.job.value,
-      id: list.length, 
-      key: list.length, 
+      id: todos.length, 
+      key: todos.length,  
       isDone: false,
     }
     list.filter((item: any) => item.isActive === true)[0].todos.push(objData);
@@ -20,9 +20,9 @@ export default function TodoForm({setList, list}: any) {
   }
 
   return (
-    <form className="Form" onSubmit={(event) => handleSubmit(event)}>
+    <form className="add-todo" onSubmit={(event) => handleSubmit(event)}>
       <TextField id="standard-basic" name="job" label="Add todo" variant="standard"/>
-      <input type="submit"/>
+      <input className="add-todo-item" type="submit"/>
       <label htmlFor=""></label>
     </form>
   );

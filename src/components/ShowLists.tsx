@@ -8,7 +8,7 @@ export default function ShowLists({ list, setList, handleDispatchTodos}: any) {
         <Box>
             {list ? list.map((item: any) => {
                 return (
-                    <div className={item.name} onClick={(event) => handleDispatchTodos(event)}> {item.name} </div>
+                    <span className={item.name} onClick={(event) => handleDispatchTodos(event)} key={list.length}> {item.name} </span>
                 )
             }): <></>}
 

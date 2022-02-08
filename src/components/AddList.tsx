@@ -12,7 +12,8 @@ export default function AddList({setList, list}: any) {
     const newList = {
       name: event.currentTarget.list.value,
       todos: [],
-      isActive: false
+      isActive: false,
+      key: list.length,
     }
     if(newList.name != ''){
       list.push(newList);
@@ -22,9 +23,9 @@ export default function AddList({setList, list}: any) {
   }
 
   return (
-    <form className="global-list" onSubmit={(event) => handleSubmit(event)}>
+    <form className="add-list" onSubmit={(event) => handleSubmit(event)}>
     <TextField id="standard-basic" name="list" label="New list" variant="standard" />
-    <input type="submit" />
+    <input className="add-list-item" type="submit" />
   </form>
   );
 }

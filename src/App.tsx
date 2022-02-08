@@ -16,6 +16,7 @@ function App() {
     // console.log(event.currentTarget.className)
     //@ts-ignore
     list.filter((item: any)=> item.name == event.currentTarget.className)[0].isActive = true;
+    //@ts-ignore
     const todosInList = list.filter((item: any)=> item.name == event.currentTarget.className)[0].todos;
 
     console.log(todosInList)
