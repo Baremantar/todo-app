@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-export default function List({setList, list, todos, setTodos}: any) {
+export default function List({setList, list, todos, setTodos, checked, setChecked}: any) {
 
 
 
