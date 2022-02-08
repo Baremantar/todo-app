@@ -16,7 +16,6 @@ export default function TodoList({ list, todos, setList, setTodos,}: any) {
     
     list.filter((item: any)=> item.isActive == true)[0].todos[index].isDone = true;
     setList([...list]);
-
 }
   
   return (
@@ -27,7 +26,7 @@ export default function TodoList({ list, todos, setList, setTodos,}: any) {
       />
     <ul className="list">
       {
-          todos ? checked[0] ?
+          todos && checked[0] ?
           
           todos.map((item: any, index: number) => {
               return (
@@ -38,18 +37,22 @@ export default function TodoList({ list, todos, setList, setTodos,}: any) {
                   </label>
                 </li>
               );        
-          }) : <>
-          </>:<>{
-        todos.filter((item: any) => item.isDone == true).todos.map((item: any, index: number) => {
+            }
+          ):todos && checked[1] ?
+          todos.filter((item: any) => item.isDone == true)
+          .map((item: any, index: number) => {
               return (
                 <li key={item.id}>
                   <label>
                     <span className={item.isDone ? "active" : undefined}>{item.name}</span>
-                    <button onClick={(event) => addActive(event, index)}>x</button>
+                    <button onClick={(event) => addActive(event, index)}></button>
                   </label>
                 </li>
               );        
-          })}</>}
+            }
+          )
+        :<>
+      </>}
     </ul>
   </>
   );

@@ -15,9 +15,12 @@ export default function AddList({setList, list}: any) {
       isActive: false,
       key: list.length,
     }
-    if(newList.name != ''){
+    if(newList.name != '' && newList.name != list.filter((item: any) => newList.name === event.currentTarget.list.value)[0]){
+      event.preventDefault()
+      
       list.push(newList);
       setList([...list]);
+      
       event.currentTarget.list.value='';
     }
   }
