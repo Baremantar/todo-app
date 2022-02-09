@@ -7,16 +7,15 @@ import React from 'react';
 export default function AddList({setList, list}: any) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-
+    event.preventDefault();
     const newList = {
       name: event.currentTarget.list.value,
       todos: [],
       isActive: false,
       key: list.length,
     }
-    if(newList.name != '' && newList.name != list.filter((item: any) => newList.name === event.currentTarget.list.value)[0]){
-      event.preventDefault()
+    console.log(list.filter((newList: any) => newList.name === event.currentTarget.list.value).length)
+    if(newList.name != '' && list.filter((item: any) => newList.name === item.name).length == 0){
       
       list.push(newList);
       setList([...list]);

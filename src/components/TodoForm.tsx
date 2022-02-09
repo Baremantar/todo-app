@@ -1,10 +1,8 @@
 import TextField from '@mui/material/TextField';
 import React from 'react';
 
-
-
 export default function TodoForm({setList, list, todos}: any) {
-
+  
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     
@@ -16,7 +14,7 @@ export default function TodoForm({setList, list, todos}: any) {
     }
     list.filter((item: any) => item.isActive === true)[0].todos.push(objData);
     setList([...list]);
-    
+    event.currentTarget.list.value='';
   }
 
   return (
