@@ -1,23 +1,32 @@
-import React from 'react';
-import './App.css';
+import React,{useState} from 'react'
+import Box from '@mui/material/Box';
+import GlobalList from './components/GlobalLists';
+import './App.sass';
+import List from './components/List';
 
 function App() {
+
+  const [list, setList] = useState([]);
+  const [todos, setTodos] = useState([]);
+
+  function handleDispatchTodos(event: any) {
+    list.forEach((item: any) => {
+        item.isActive = false
+    });
+    //@ts-ignore
+    list.filter((item: any)=> item.name == event.currentTarget.className)[0].isActive = true;
+    //@ts-ignore
+    const todosInList = list.filter((item: any)=> item.name == event.currentTarget.className)[0].todos;
+
+    setTodos(todosInList);
+    setList([...list]);
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="App">
+      <GlobalList setList={setList} list={list} handleDispatchTodos={handleDispatchTodos}/>
+      <List setList={setList} list={list} todos={todos} setTodos={setTodos}/>
+    </Box>
   );
 }
 
